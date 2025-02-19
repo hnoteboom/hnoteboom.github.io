@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Harper Noteboom">
 
-<title>Data_Viz – Harper Noteboom</title>
+<title>National Park Species – Harper Noteboom</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,10 +97,18 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./Data_Viz.html" aria-current="page"> 
-<span class="menu-text">Data_Viz</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Viz</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz">    
+        <li class="dropdown-header">database1.qmd</li>
+        <li>
+    <a class="dropdown-item" href="./national-parks.html">
+ <span class="dropdown-text">National Park Species</span></a>
   </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -119,13 +128,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data_Viz</h1>
+<h1 class="title">National Park Species</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-page">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harper Noteboom </p>
+          </div>
+  </div>
     
   
     
@@ -136,7 +151,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Data Viz!!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="national-parks_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The figure above shows the number of individual species in different species categories present in Rocky Mountain National Park.</p>
+<p></p>
+<p>Original Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md</p>
 
 
 

@@ -1,0 +1,45 @@
+---
+title: "Bechdel Test"
+format: html
+execute:
+  echo: false
+  warning: false
+author: Harper Noteboom
+published: 2025/02/19
+---
+
+```{r}
+library(tidyverse)
+
+#manually loading the data 
+
+raw_bechdel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-03-09/raw_bechdel.csv')
+movies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-03-09/movies.csv')
+
+```
+
+
+
+```{r}
+av_rating_movies <- movies |> 
+  group_by(binary) |>
+  summarize(av_imdb_rating = mean(imdb_rating, na.rm = TRUE))
+
+ggplot(av_rating_movies, aes(x = binary, y = av_imdb_rating, fill = binary)) + 
+  geom_bar(stat = "identity")+ 
+  labs(
+    x = "Bechdel Test Result",
+    y = "Average IMDB rating", 
+    title = "Bechdel Test Result vs Average IMDB Rating", 
+    fill = "Bechdel Test Result"
+  )
+```
+
+The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass. 
+
+
+\textbf{References:}
+
+Original Source: https://bechdeltest.com/ 
+TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md 
+

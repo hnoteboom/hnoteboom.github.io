@@ -9,9 +9,10 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - href: Data_Viz.qmd
+      - text: "Data Viz"
         menu: 
-          - href: Tidy_Tuesday.qmd
+          - database1.qmd 
+          - national-parks.qmd
 
 format:
   html:
