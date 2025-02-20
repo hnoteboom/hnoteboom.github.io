@@ -35,6 +35,8 @@ ggplot(av_rating_movies, aes(x = binary, y = av_imdb_rating, fill = binary)) +
 
 The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass.
 
-References:
+## References: 
 
-Original Source: https://bechdeltest.com/ TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md
+Original Source: https://bechdeltest.com/
+
+TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md

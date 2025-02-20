@@ -34,6 +34,8 @@ most_visited_nps_species_data |>
 
 The figure above shows the number of individual species in different species categories present in Rocky Mountain National Park.
 
-References:
+## References: 
 
-Original Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md
+Original Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList
+
+TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md

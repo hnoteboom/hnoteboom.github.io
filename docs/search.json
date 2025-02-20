@@ -4,7 +4,14 @@
     "href": "data-viz/bechdel-test.html",
     "title": "Bechdel Test",
     "section": "",
-    "text": "The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass.\nReferences:\nOriginal Source: https://bechdeltest.com/ TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md"
+    "text": "The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass."
+  },
+  {
+    "objectID": "data-viz/bechdel-test.html#references",
+    "href": "data-viz/bechdel-test.html#references",
+    "title": "Bechdel Test",
+    "section": "References:",
+    "text": "References:\nOriginal Source: https://bechdeltest.com/\nTidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md"
   },
   {
     "objectID": "about.html",
@@ -25,6 +32,13 @@
     "href": "data-viz/national-parks.html",
     "title": "National Park Species",
     "section": "",
-    "text": "The figure above shows the number of individual species in different species categories present in Rocky Mountain National Park.\nReferences:\nOriginal Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md"
+    "text": "The figure above shows the number of individual species in different species categories present in Rocky Mountain National Park."
+  },
+  {
+    "objectID": "data-viz/national-parks.html#references",
+    "href": "data-viz/national-parks.html#references",
+    "title": "National Park Species",
+    "section": "References:",
+    "text": "References:\nOriginal Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList\nTidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md"
   }
 ]
