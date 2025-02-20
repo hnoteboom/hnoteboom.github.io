@@ -2,18 +2,19 @@ project:
   type: website
   output-dir : docs
 
+
 website:
   title: "Harper Noteboom"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-      - text: "Data Viz"
-        menu: 
-          - database1.qmd 
-          - national-parks.qmd
-
+      - text: About
+        href: index.qmd
+      - text: Data Viz
+        menu:
+          - text: "Bechdel Test"
+            href: data-viz/bechdel-test.qmd
+          - text: "National Parks"
+            href: data-viz/national-parks.qmd
 format:
   html:
     theme: solar

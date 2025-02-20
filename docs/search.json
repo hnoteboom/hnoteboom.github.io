@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "bechdel-test.html",
-    "href": "bechdel-test.html",
+    "objectID": "data-viz/bechdel-test.html",
+    "href": "data-viz/bechdel-test.html",
     "title": "Bechdel Test",
     "section": "",
-    "text": "The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass.\n\nOriginal Source: https://bechdeltest.com/ TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md"
+    "text": "The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass.\nReferences:\nOriginal Source: https://bechdeltest.com/ TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "index.html",
@@ -14,17 +21,10 @@
     "text": "Hi there I’m Harper! I’m a student at Pomona College studying Computer Science and Data Science. Outside of my studies, I enjoy reading, hiking, and travel. Take a look around my website to learn more!"
   },
   {
-    "objectID": "national-parks.html",
-    "href": "national-parks.html",
+    "objectID": "data-viz/national-parks.html",
+    "href": "data-viz/national-parks.html",
     "title": "National Park Species",
     "section": "",
-    "text": "The figure above shows the number of individual species in different species categories present in Rocky Mountain National Park.\n\nOriginal Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "The figure above shows the number of individual species in different species categories present in Rocky Mountain National Park.\nReferences:\nOriginal Source: https://irma.nps.gov/NPSpecies/Search/SpeciesList TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-08/readme.md"
   }
 ]
