@@ -8,7 +8,7 @@
 
 <meta name="author" content="Harper Noteboom">
 
-<title>Bechdel Test – Harper Noteboom</title>
+<title>Full Text Analysis – Harper Noteboom</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data-viz/text-analysis.html"> 
+    <a class="nav-link active" href="../data-viz/text-analysis.html" aria-current="page"> 
 <span class="menu-text">Full Text Analysis</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -128,7 +128,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References:</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1">Analysis 1</a></li>
+  <li><a href="#analysis-2" id="toc-analysis-2" class="nav-link" data-scroll-target="#analysis-2">Analysis 2</a></li>
+  <li><a href="#analysis-3" id="toc-analysis-3" class="nav-link" data-scroll-target="#analysis-3">Analysis 3</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -137,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bechdel Test</h1>
+<h1 class="title">Full Text Analysis</h1>
 </div>
 
 
@@ -160,20 +164,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="dataset" class="level3">
+<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
+<p>The data I have chosen is about board games that were released between 1950 and 2016. The data comes from the site BoardGameGeek which is a website for board game enthusiasts that features reviews, forums, and board game data. The dataset has information about each games category, release date, description, average rating, and more.</p>
+</section>
+<section id="analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-1">Analysis 1</h3>
+<p>I first wanted to find out what the most common words in the titles of games were. I filtered out filler words like “the”, “and”, “to”, etc. The top ten most common words board game titles can be seen in the table below.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   words        n
+   &lt;chr&gt;    &lt;int&gt;
+ 1 War        270
+ 2 Edition    215
+ 3 Card       201
+ 4 Battle     140
+ 5 Star       125
+ 6 Wars       118
+ 7 edition    107
+ 8 World      101
+ 9 Dice        99
+10 Monopoly    72</code></pre>
+</div>
+</div>
+</section>
+<section id="analysis-2" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-2">Analysis 2</h3>
+<p>Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called category in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bechdel-test_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="text-analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="text-analysis_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass.</p>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References:</h2>
-<p>Original Source: https://bechdeltest.com/</p>
-<p>TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md</p>
+<p>The first graph shows a sharp increase in the number of war games released between 1970 and 1980 and another sharp increase after 2000. From this graph it would be tempting to say that overall there has been an overall increase in the number of war related game sinse the mid 1900’s. However, it is important to take into account the total number of released games. The second graph shows the proportion of games that are considered war games. In this graph we can see that following a low period in the mid-60s, there was a dramatic increase in proportion from the 1970-1980. This aligns with what the first graph showed. The second graph shows that between 1990 and 2000 the proportion of war games decreased and in 2016 the proportion of war games was relatively the same as in 1965. These graphs demonstrate the importance of looking at proportion instead of just quantity.</p>
+</section>
+<section id="analysis-3" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-3">Analysis 3</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  war     count average_rating
+  &lt;chr&gt;   &lt;int&gt;          &lt;dbl&gt;
+1 Fantasy   139           6.59
+2 I         116           6.91
+3 II        668           6.88</code></pre>
+</div>
+</div>
+<p>The table above shows how many games were published that were categorized as games about World War I, World War II or Fantasy War. There were almost 6 times as many games made about World War II than World War I and Fantasy War games. Across the three, World War I games have a slightly better average rating but overall they have similar ratings.</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>Original Source: https://boardgamegeek.com/ Tidy Tuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2019/2019-03-12/readme.md</p>
 
 
 </section>

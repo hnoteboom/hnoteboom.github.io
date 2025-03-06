@@ -9,15 +9,18 @@ website:
     left:
       - text: About
         href: index.qmd
+      - text: "Full Text Analysis" 
+        href: data-viz/text-analysis.qmd
       - text: Data Viz
         menu:
           - text: "Bechdel Test"
             href: data-viz/bechdel-test.qmd
           - text: "National Parks"
             href: data-viz/national-parks.qmd
+    
 format:
   html:
-    theme: solar
+    theme: jolla
     css: styles.css
     toc: true
     page-layout: full
