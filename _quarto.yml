@@ -10,7 +10,7 @@ website:
       - text: About
         href: index.qmd
       - text: "Full Text Analysis" 
-        href: data-viz/text-analysis.qmd
+        href: text-analysis.qmd
       - text: Data Viz
         menu:
           - text: "Bechdel Test"
