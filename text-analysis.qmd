@@ -1,12 +1,7 @@
 ---
 title: "Full Text Analysis"
-format:
-  html:
-    code-fold: true
-    code-summary: "Code"
-execute:
-  echo: false
-  warning: false
+format: html
+
 author: Harper Noteboom
 published: 2025/03/05
 ---
@@ -15,7 +10,7 @@ published: 2025/03/05
 
 The data I have chosen is about board games that were released between 1950 and 2016. The data comes from the site BoardGameGeek which is a website for board game enthusiasts that features reviews, forums, and board game data. The dataset has information about each games category, release date, description, average rating, and more.
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r results='hide', warning=FALSE, message=FALSE}
 library(tidyverse)
 
 board_games <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2019/2019-03-12/board_games.csv")
