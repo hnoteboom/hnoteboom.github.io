@@ -17,6 +17,8 @@ website:
             href: data-viz/bechdel-test.qmd
           - text: "National Parks"
             href: data-viz/national-parks.qmd
+      - text: "Simulation"
+        href: simulation.qmd
     
 format:
   html:

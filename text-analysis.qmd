@@ -4,6 +4,7 @@ format: html
 execute:
   echo: true
   warning: false
+  
 author: Harper Noteboom
 published: 2025/03/05
 ---
