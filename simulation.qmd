@@ -90,7 +90,11 @@ perm_stats <-
 perm_stats |> 
   ggplot(aes(x = ave_diff_perm)) + 
   geom_histogram(bins = 50) + 
-  geom_vline(aes(xintercept = ave_diff), color = "red")
+  geom_vline(aes(xintercept = ave_diff), color = "red") + 
+  labs(
+    title = "Null distribution", 
+    x = "Average difference"
+  )
 
 perm_stats |> 
   summarize(p_val_ave = mean(ave_diff_perm > ave_diff))

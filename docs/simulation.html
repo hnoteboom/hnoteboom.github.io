@@ -251,7 +251,8 @@ window.Quarto = {
 <p>Public schools are those funded by the government. Private schools are privately owned and not government funded. Charter schools are also publicly funded but operate outside of the established state school system. Kindergarten are schools for only elementary school students. BOCES is a special program in New York that serves as an extension of publicly funded schools. Despite being publicly funded, charter schools have more flexibility than regular public schools when it comes to curriculum and operations. I wanted to see if this flexibility made a difference in vaccination rates.</p>
 <p>My research question is:</p>
 <p>In the population, do public schools have higher vaccination rates than charter schools on average?</p>
-<p><span class="math inline">\(H_0\)</span> = <span class="math inline">\(\mu public\)</span> = <span class="math inline">\(\mu charter\)</span> <span class="math inline">\(H_A\)</span> = <span class="math inline">\(\mu public\)</span> &gt; <span class="math inline">\(\mu charter\)</span></p>
+<p><span class="math inline">\(H_0\)</span> = <span class="math inline">\(\mu_{\text{public}} = \mu_{\text{charter}}\)</span><br>
+<span class="math inline">\(H_A\)</span> = <span class="math inline">\(\mu_{\text{public}} &gt; \mu_{\text{charter}}\)</span></p>
 <p>The graph below shows the average vaccination rate for Public and Charter Schools.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c_p_measles <span class="ot">&lt;-</span> measles <span class="sc">|&gt;</span> </span>
@@ -309,7 +310,11 @@ window.Quarto = {
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>perm_stats <span class="sc">|&gt;</span> </span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ave_diff_perm)) <span class="sc">+</span> </span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span> </span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> ave_diff), <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> ave_diff), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Null distribution"</span>, </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Average difference"</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
