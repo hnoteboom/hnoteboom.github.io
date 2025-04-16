@@ -19,6 +19,8 @@ website:
             href: data-viz/national-parks.qmd
       - text: "Simulation"
         href: simulation.qmd
+      - text: "Data Ethics"
+        href: ethics.qmd
     
 format:
   html:
