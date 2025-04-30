@@ -1,0 +1,137 @@
+---
+title: "Project_5"
+format: html
+execute:
+  echo: true
+  warning: false
+
+author: Harper Noteboom
+published: 2025/03/05
+---
+
+## SQL Data Analysis
+
+For this analysis I decided to look at a few different questions. First, I wanted to see if the number of police stops labeled as Vehicular in the state of California were changing over time. I was also interested to see if the rate of stops that resulted in arrests was also changing. I next wanted to see if there was any difference in the number of stops depending on the day of the month, I picked to look at data from San Francisco as it had data that spanned almost 10 years. Lastly, I wanted to see the racial breakdown of stops in Florida to see if there were differences in the rates of stops for different races. All of the data used in this analysis comes from the Stanford Open Policing Project.
+
+```{r results='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(DBI)
+library(scales)
+```
+
+```{r results='hide', warning=FALSE, message=FALSE, echo=FALSE}
+con_traffic <- DBI::dbConnect(
+  RMariaDB::MariaDB(),
+  dbname = "traffic",
+  host = Sys.getenv("TRAFFIC_HOST"),
+  user = Sys.getenv("TRAFFIC_USER"),
+  password = Sys.getenv("TRAFFIC_PWD")
+)
+```
+
+```{sql connection=con_traffic}
+
+SELECT 
+  YEAR(date) AS year, 
+  MIN(date) as start_date, 
+  MAX(date) as end_date
+FROM ca_statewide_2023_01_26
+GROUP BY year
+
+```
+
+I used the table above to see the dates that the data spanned. Since the start date for 2009 was halfway through the year and the end date for 2016 was also halfway through the year, I decided to leave these years out of my data analysis.
+
+```{sql connection=con_traffic}
+#| output.var: "arrests_ca_statewide"
+
+SELECT 
+  YEAR(date) AS year, 
+  COUNT(*) AS count, 
+  AVG(arrest_made) as arrested
+FROM ca_statewide_2023_01_26
+WHERE type = "vehicular"
+GROUP BY year
+HAVING 
+  year != 2009 AND year != 2016
+ORDER BY year DESC
+
+```
+
+```{r}
+arrests_ca_statewide
+```
+
+The table above shows the number of vehicular traffic stops in the state of California for the years between 2010 and 2015. The arrested column represents the percentage of vehicular stops that resulted in arrest. There is consistently around 3% of stops resulting in arrests.
+
+```{r}
+arrests_ca_statewide <- arrests_ca_statewide |> 
+  mutate(year = as.character(year), count = as.numeric(count)) 
+
+ggplot(arrests_ca_statewide, aes(x = year, y = count, fill = year)) + 
+  geom_col()+ 
+  scale_y_continuous(
+    labels = label_number(scale = 1e-6, suffix = "M", accuracy = 0.1)
+  ) +
+  labs(
+    x = "Year", 
+    y = "Count in millions", 
+    title = "Number of Vehicular Stops in California"
+  )
+```
+
+The graph above shows the number of police stops recorded as vehicular in the state of California across the years from 2010 to 2015. The graph shows a steady decline in the number of stops each year from 2011 to 2015, with stops decreasing from around 5 million in 2011 to 4 million in 2015. This graph combined with the table above shows that while the number of stops is decreasing, the proportion of stops that result in arrest remains relatively the same, around 3%.
+
+```{sql connection=con_traffic}
+#| output.var: "date_count_sf"
+
+SELECT DAY(date) AS day, COUNT(*) AS count
+FROM ca_san_francisco_2020_04_01
+WHERE type = "vehicular"
+GROUP BY day
+LIMIT 0, 31;
+
+```
+
+```{r}
+date_count_sf |> 
+  mutate(count = as.numeric(count))|> 
+  ggplot(aes(x = day, y = count))+ 
+  geom_col() +
+  labs(
+    x = "Day of the month", 
+    y = "Number of stops", 
+    title = "Number of Police Stops on Different Days of the Month in San Fransisco"
+  )
+
+```
+
+The graph above shows police stops for different days of the month in San Francisco. The data spans all stops from 2007 to 2016. There is a common myth that you are more likely to be pulled over toward the end of the month because police departments need to meet a monthly quota. This data shows no real difference in stop rates between different days of the month. There is some variation among the days which is to be expected. The last days of the month, the 29th, 30th and 31st have the lowest rates with the 31st having significantly less than any other day. This is because not every month has 31 days (or even 29 in the case of February), so naturally there will be less stops on those days of the month.
+
+```{sql connection=con_traffic}
+
+SELECT 
+  subject_race, 
+  COUNT(*) AS count, 
+  COUNT(*) * 100.0 / (SELECT COUNT(*) FROM fl_statewide_2020_04_01 WHERE subject_race IS NOT NULL) AS percent
+FROM fl_statewide_2020_04_01 
+GROUP BY subject_race
+HAVING subject_race IS NOT NULL 
+
+```
+
+The table above shows the race of individuals involved in police stops in Florida from 2010 to 2018. Over 56% of all subjects were white, and around 20% were hispanic and black. No real conclusions can be drawn from this data for multiple reasons. Officers often cannot ask people their race but must report it leading to officers making assumptions about subjects race. Biracial people might be inaccurately represented in the data and without knowing the racial make up of Florida, it is impossible to make any general claims about whether these rates are proportional to overall population or not.
+
+## Conclusion 
+
+In conclusion, data from the Stanford Open Policing Project shows that between 2011 and 2015 the number of police stops consistently decreased in the state of California but the arrest rate remained the same. According to data from San Francisco there is no significant difference in police stops on different days of the month. And the majority of people stopped in Florida between 2010 and 2018 were reported to be white. 
+
+
+## References 
+Pierson, Emma, Camelia Simoiu, Jan Overgoor, Sam Corbett-Davies, Daniel Jenson, Amy Shoemaker, Vignesh Ramachandran, et al. 2020. “A Large-Scale Analysis of Racial Disparities in Police Stops Across the United States.” Nature Human Behaviour, 1–10.
+
+```{r}
+dbDisconnect(con_traffic)
+```
+

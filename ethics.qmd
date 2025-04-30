@@ -3,11 +3,11 @@ title: "Ethics in Data Science"
 format: html
 ---
 
-##### Case Study: Target's pregnancy predicting algorithm 
+##### Case Study: Target's pregnancy predicting algorithm
 
 Target is a retail corporation and one of the nation’s biggest department store chains. They offer a wide variety of goods from groceries, to clothing, to baby products. In 2012, an article in the New York Times titled "*How Companies Learn Your Secrets*" by Charles Duhigg exposed the company’s "pregnancy predictor" algorithm. The algorithm, created by statistician Andrew Pole, uses customers’ shopping habits to predict if they are pregnant, with the goal of targeting advertising to increase sales and build customer loyalty. By predicting whether an individual is pregnant, Target can advertise baby products to them before the child is born and influence their shopping habits. This algorithm took data from customers, often without their knowledge or consent, and used it to benefit the company without the consumer knowing what was going on
 
-### Background 
+### Background
 
 Andrew Pole was hired by Target to use his insights into consumer habits to increase Target’s sales. He was tasked with identifying the moments in consumers’ lives where they are undergoing great changes and so their shopping habits were also susceptible to change. One such period was the time around the birth of a child. Target wanted to reach new parents before other brands could, which led them to want to know if their customers were pregnant, even if they didn't want the brand to know.
 
@@ -15,7 +15,7 @@ Pole began by looking at baby shower registries, where pregnant people willingly
 
 Pole then applied this algorithm to every regular female shopper in the nation and produced a list of thousands of people who it found were most likely pregnant. While this is not illegal—Target says they comply with all federal and state laws—and it isn't a case of leaked or stolen data, this story still spurs ethical questions related to data collection and use. Some of the ethical concerns that this raises are: Who benefits from the use of this data and who suffers? Should it be possible for brands to predict sensitive health information? What should they be able to do with this information?
 
-###  Data Values and Principles Manifesto
+### Data Values and Principles Manifesto
 
 The first item in the Data Values and Principles Manifesto states, "Use data to improve life for our users, customers, organizations, and communities." This raises the question of whose life is really improved by this algorithm. Target might claim that the algorithm can actually be beneficial to pregnant people. By providing them with advertisements and coupons it makes it easier for customers to get the products they need and even save money.
 
@@ -29,7 +29,7 @@ Additionally, while Target might claim that this information is purely for adver
 
 Especially in a post-Roe v. Wade society, reproductive information is extremely sensitive and the pregnant person should have full control over who knows that information. While this data increases Target's profits and could benefit customers, it also has the potential to harm many people.
 
-### What was the consent structure? 
+### What was the consent structure?
 
 The data being used came from baby registries, purchase history, and customer profiles. Customers making baby registries willingly provided their status and due date, and customers in the store technically agreed to Target knowing their purchase history. However, the "participants" whose data was being used were not aware of exactly the applications of their data.
 
@@ -37,11 +37,11 @@ Customers that have Target accounts or loyalty cards accept certain terms and co
 
 This creates the question of: Can you provide informed consent for applications that are not yet foreseen? Target customers could never have known what their data would be used for, and it is virtually impossible to ever give consent for future applications that are unknown. To some extent, that’s a risk we take in the digital age. However, I think that even if participants have given "consent," companies should be prevented from manipulating that "consent" in ethically ambiguous ways.
 
-### Were the data made publicly available? 
+### Were the data made publicly available?
 
 The algorithm that Pole created and the data about individuals’ "pregnancy scores" has not become publicly available. In this case, it is crucial to the privacy, autonomy, and well-being of Target customers that this data remains non-public. However, there could be some benefit to making the algorithm or anonymous data public so that the data science community can check for bias and keep Target accountable for their actions.
 
-### Who was measured? Are the representative of whom we want to generalize? 
+### Who was measured? Are the representative of whom we want to generalize?
 
 Another ethical concern in this case study is representation. The individuals measured were regular Target shoppers who used loyalty cards or credit cards. This is not representative of the whole population and is likely skewed by demographics like income, age, and race. We don't know specifics of who and what was collected—this makes it impossible to see what biases exist in the data and thus the algorithm.
 
@@ -49,7 +49,7 @@ We need more information on the types of people that were measured and what demo
 
 In conclusion, Targets "pregnancy predictor" raises many ethical questions surrounding data use and corporations use of data to predict sensitive health information about their customers.
 
-### Sources: 
+### Sources:
 
 Duhigg, Charles. “How Companies Learn Your Secrets.” The New York Times Magazine, 16 Feb. 2012, www.nytimes.com/2012/02/19/magazine/shopping-habits.html.
 

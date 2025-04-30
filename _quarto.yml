@@ -21,6 +21,8 @@ website:
         href: simulation.qmd
       - text: "Data Ethics"
         href: ethics.qmd
+      - text: "SQL Analysis"
+        href: Project_5.qmd
     
 format:
   html:
