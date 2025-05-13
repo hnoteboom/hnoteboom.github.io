@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ethics in Data Science – Harper Noteboom</title>
+<title>Articles – Harper Noteboom</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./text-analysis.html"> 
+    <a class="nav-link" href="./text-analysis.qmd"> 
 <span class="menu-text">Full Text Analysis</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -113,23 +113,27 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./data-viz/national-park-interactive.html">
  <span class="dropdown-text">National Parks - Interactive</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./data-viz/simulation.html">
+ <span class="dropdown-text">Simulation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data-viz/ethics.html">
+ <span class="dropdown-text">Data Ethics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data-viz/Project_5.html">
+ <span class="dropdown-text">SQL Analysis</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./simulation.html"> 
-<span class="menu-text">Simulation</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./ethics.html" aria-current="page"> 
-<span class="menu-text">Data Ethics</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Project_5.html"> 
-<span class="menu-text">SQL Analysis</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./final_pres.html"> 
 <span class="menu-text">Final Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./articles.html" aria-current="page"> 
+<span class="menu-text">Articles</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -147,13 +151,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
-  <li><a href="#data-values-and-principles-manifesto" id="toc-data-values-and-principles-manifesto" class="nav-link" data-scroll-target="#data-values-and-principles-manifesto">Data Values and Principles Manifesto</a></li>
-  <li><a href="#what-was-the-consent-structure" id="toc-what-was-the-consent-structure" class="nav-link" data-scroll-target="#what-was-the-consent-structure">What was the consent structure?</a></li>
-  <li><a href="#were-the-data-made-publicly-available" id="toc-were-the-data-made-publicly-available" class="nav-link" data-scroll-target="#were-the-data-made-publicly-available">Were the data made publicly available?</a></li>
-  <li><a href="#who-was-measured-are-the-representative-of-whom-we-want-to-generalize" id="toc-who-was-measured-are-the-representative-of-whom-we-want-to-generalize" class="nav-link" data-scroll-target="#who-was-measured-are-the-representative-of-whom-we-want-to-generalize">Who was measured? Are the representative of whom we want to generalize?</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources:</a></li>
+  <li><a href="#catalyst-planet-feature" id="toc-catalyst-planet-feature" class="nav-link active" data-scroll-target="#catalyst-planet-feature">Catalyst Planet Feature</a></li>
   </ul>
 </nav>
     </div>
@@ -162,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ethics in Data Science</h1>
+<h1 class="title">Articles</h1>
 </div>
 
 
@@ -179,48 +177,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="case-study-targets-pregnancy-predicting-algorithm" class="level5">
-<h5 class="anchored" data-anchor-id="case-study-targets-pregnancy-predicting-algorithm">Case Study: Target’s pregnancy predicting algorithm</h5>
-<p>Target is a retail corporation and one of the nation’s biggest department store chains. They offer a wide variety of goods from groceries, to clothing, to baby products. In 2012, an article in the New York Times titled “<em>How Companies Learn Your Secrets</em>” by Charles Duhigg exposed the company’s “pregnancy predictor” algorithm. The algorithm, created by statistician Andrew Pole, uses customers’ shopping habits to predict if they are pregnant, with the goal of targeting advertising to increase sales and build customer loyalty. By predicting whether an individual is pregnant, Target can advertise baby products to them before the child is born and influence their shopping habits. This algorithm took data from customers, often without their knowledge or consent, and used it to benefit the company without the consumer knowing what was going on</p>
-</section>
-<section id="background" class="level3">
-<h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Andrew Pole was hired by Target to use his insights into consumer habits to increase Target’s sales. He was tasked with identifying the moments in consumers’ lives where they are undergoing great changes and so their shopping habits were also susceptible to change. One such period was the time around the birth of a child. Target wanted to reach new parents before other brands could, which led them to want to know if their customers were pregnant, even if they didn’t want the brand to know.</p>
-<p>Pole began by looking at baby shower registries, where pregnant people willingly disclosed their pregnancy. He observed how these people’s spending habits changed as they approached their due date. One of the trends he noticed was that many people began to buy lots of unscented lotion around the beginning of their second trimester and an increase in vitamins in their first trimester. Through all of this data, Pole developed a list of 25 products that allowed him to give each consumer a “pregnancy prediction” score, as well as an estimate of their due date. This would then allow Target to send the customer specialized ads for relevant products as they approached their due date. Target also used information about habit building to increase the variety of products that consumers would purchase.</p>
-<p>Pole then applied this algorithm to every regular female shopper in the nation and produced a list of thousands of people who it found were most likely pregnant. While this is not illegal—Target says they comply with all federal and state laws—and it isn’t a case of leaked or stolen data, this story still spurs ethical questions related to data collection and use. Some of the ethical concerns that this raises are: Who benefits from the use of this data and who suffers? Should it be possible for brands to predict sensitive health information? What should they be able to do with this information?</p>
-</section>
-<section id="data-values-and-principles-manifesto" class="level3">
-<h3 class="anchored" data-anchor-id="data-values-and-principles-manifesto">Data Values and Principles Manifesto</h3>
-<p>The first item in the Data Values and Principles Manifesto states, “Use data to improve life for our users, customers, organizations, and communities.” This raises the question of whose life is really improved by this algorithm. Target might claim that the algorithm can actually be beneficial to pregnant people. By providing them with advertisements and coupons it makes it easier for customers to get the products they need and even save money.</p>
-<p>As described in the New York Times article, new parents are often overwhelmed and they no longer want to shop at different stores for different items. By advertising the diversity of Target’s products, they made it easier for parents to get everything they need from one store.</p>
-<p>In the article, “Target Knows You’re Pregnant; Is This What Customers Really Want,” Brian Cantor makes the argument that consumers like when ads are targeted toward their preferences and needs and that it makes shopping a better experience for them.</p>
-<p>However, I don’t think this is actually improving the lives of users. Advertising is one thing, but using data to predict sensitive information about someone under the guise of benefiting them is different. In reality, Target, as a corporation, benefits from this algorithm.</p>
-<p>Additionally, while Target might claim that this information is purely for advertising purposes, when placed in the wrong hands, information about a person’s reproductive status can have detrimental effects on their life. In the book Predictive Analytics by Eric Siegel, he cites an online user who explained the scenario of a pregnant woman with a precarious job, struggling to get state disability—if this woman’s pregnancy was leaked, she could risk losing her benefits and her job.</p>
-<p>Especially in a post-Roe v. Wade society, reproductive information is extremely sensitive and the pregnant person should have full control over who knows that information. While this data increases Target’s profits and could benefit customers, it also has the potential to harm many people.</p>
-</section>
-<section id="what-was-the-consent-structure" class="level3">
-<h3 class="anchored" data-anchor-id="what-was-the-consent-structure">What was the consent structure?</h3>
-<p>The data being used came from baby registries, purchase history, and customer profiles. Customers making baby registries willingly provided their status and due date, and customers in the store technically agreed to Target knowing their purchase history. However, the “participants” whose data was being used were not aware of exactly the applications of their data.</p>
-<p>Customers that have Target accounts or loyalty cards accept certain terms and conditions that are usually long and hard to understand. Technically, this is customers giving their consent to their data being used. Customers were not aware that their data would be used to create a predictive model that could reveal sensitive health information.</p>
-<p>This creates the question of: Can you provide informed consent for applications that are not yet foreseen? Target customers could never have known what their data would be used for, and it is virtually impossible to ever give consent for future applications that are unknown. To some extent, that’s a risk we take in the digital age. However, I think that even if participants have given “consent,” companies should be prevented from manipulating that “consent” in ethically ambiguous ways.</p>
-</section>
-<section id="were-the-data-made-publicly-available" class="level3">
-<h3 class="anchored" data-anchor-id="were-the-data-made-publicly-available">Were the data made publicly available?</h3>
-<p>The algorithm that Pole created and the data about individuals’ “pregnancy scores” has not become publicly available. In this case, it is crucial to the privacy, autonomy, and well-being of Target customers that this data remains non-public. However, it is important to keep in mind that “non-public” does not mean private. Target could be selling this data to other companies so it is impossible to know who actually has access to this data and what they are using it for. Additionally, there could be some benefit to making the algorithm or anonymous data public so that the data science community can check for bias and keep Target accountable for their actions.</p>
-</section>
-<section id="who-was-measured-are-the-representative-of-whom-we-want-to-generalize" class="level3">
-<h3 class="anchored" data-anchor-id="who-was-measured-are-the-representative-of-whom-we-want-to-generalize">Who was measured? Are the representative of whom we want to generalize?</h3>
-<p>One thing that should be considered when discussing ethics in data is representation in the data and who we are generalizing to. In this case, the individuals measured were regular Target shoppers who used loyalty cards or credit cards. While this is not representative of the whole population and is likely skewed by demographics like income, age, and race, it may not be as big of a concern in this case. Target is applying their algorithm to other target shoppers in which case the data is representative of the populations we are generalizing to.</p>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>In conclusion, Targets “pregnancy predictor” raises many ethical questions surrounding data use and corporations use of data to predict sensitive health information about their customers. Working in the field of data science requires critical examination of our biases and consideration of ethical issues surrounding data.</p>
-</section>
-<section id="sources" class="level3">
-<h3 class="anchored" data-anchor-id="sources">Sources:</h3>
-<p>Duhigg, Charles. “How Companies Learn Your Secrets.” The New York Times Magazine, 16 Feb.&nbsp;2012, www.nytimes.com/2012/02/19/magazine/shopping-habits.html.</p>
-<p>Cantor, Brian. “Target Knows You’re Pregnant; Is This What Customers Really Want?” Customer Contact Week Digital, www.customercontactweekdigital.com/customer-experience/articles/target-knows-you-re-pregnant-is-this-what-customer. Accessed 16 Apr.&nbsp;2025.</p>
-<p>Siegel, Eric. Predictive Analytics: The Power to Predict Who Will Click, Buy, Lie, or Die. Revised and Updated ed., Wiley, 2016.</p>
+<section id="catalyst-planet-feature" class="level2">
+<h2 class="anchored" data-anchor-id="catalyst-planet-feature">Catalyst Planet Feature</h2>
+<p>Here’s an article I wrote for the travel magazine, Catalyst Planet about my travels in Vietnam!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.catalystplanet.com/travel-and-social-action-stories/an-epic-motorbike-journey-through-northeast-vietnam?rq=ha%20giang"><img src="ha_giang_preview.png" class="img-fluid figure-img" alt="Preview of Ha Giang article"></a></p>
+<figcaption>Preview of Ha Giang article</figcaption>
+</figure>
+</div>
 
 
 </section>

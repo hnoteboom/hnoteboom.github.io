@@ -9,8 +9,6 @@ website:
     left:
       - text: About
         href: index.qmd
-      - text: "Full Text Analysis" 
-        href: text-analysis.qmd
       - text: Data Viz
         menu:
           - text: "Bechdel Test"
@@ -19,17 +17,21 @@ website:
             href: data-viz/national-parks.qmd
           - text: "National Parks - Interactive"
             href: data-viz/national-park-interactive.qmd
-      - text: "Simulation"
-        href: simulation.qmd
-      - text: "Data Ethics"
-        href: ethics.qmd
-      - text: "SQL Analysis"
-        href: Project_5.qmd
+          - text: "Simulation"
+            href: data-viz/simulation.qmd
+          - text: "Data Ethics"
+            href: data-viz/ethics.qmd
+          - text: "SQL Analysis"
+            href: data-viz/Project_5.qmd
+          - text: "Full Text Analysis" 
+            href: data-viz/text-analysis.qmd
       - text: "Final Presentation"
         href: final_pres.qmd
+      - text: "Articles"
+        href: articles.qmd
 format:
   html:
-    theme: minty
+    theme: jolla
     css: styles.css
     toc: true
     page-layout: full

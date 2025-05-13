@@ -35,7 +35,7 @@ For this project I have conducted a permutation test on vaccine rates among diff
 -   Kindergarten
 -   BOCES
 
-Public schools are those funded by the government. Private schools are privately owned and not government funded. Charter schools are also publicly funded but operate outside of the established state school system. Kindergarten are schools for only elementary school students. BOCES is a special program in New York that serves as an extension of publicly funded schools. Despite being publicly funded, charter schools have more flexibility than regular public schools when it comes to curriculum and operations. I wanted to see if this flexibility made a difference in vaccination rates. The population to which I am generalizing is all schools in the US in the years between 2017 and 2019. 
+Public schools are those funded by the government. Private schools are privately owned and not government funded. Charter schools are also publicly funded but operate outside of the established state school system. Kindergarten are schools for only elementary school students. BOCES is a special program in New York that serves as an extension of publicly funded schools. Despite being publicly funded, charter schools have more flexibility than regular public schools when it comes to curriculum and operations. I wanted to see if this flexibility made a difference in vaccination rates. The population to which I am generalizing is all schools in the US in the years between 2017 and 2019.
 
 My research question is:
 
@@ -50,6 +50,7 @@ The graph below shows the average vaccination rate for Public and Charter School
 
 #| code-fold: true
 #| code-summary: "Data Filtering and Box Plot Creation"
+#| fig-alt: "Box Plot with average mmr vaccine rate on the y axis and charter school and public school on the x axis. The box for charter schools is bigger with a max of around 95 and a min of around 80 and a median line at around 88. The top whisker extends to 100 and the bottom whisker to 65. There are around 12 outliers stretching down to 25. The public box is smaller with a max of 100 and a min of 95 and a median of 99. There are lots of outliers stretching from 85 to 0. The graph shows the variation of vaccine rates in charter schools and the high median in public schools, with more outliers."
 
 c_p_measles <- measles |> 
   select(type, mmr) |> 
@@ -99,6 +100,7 @@ perm_stats <-
 
 #| code-fold: true
 #| code-summary: "Histogram Creation"
+#| fig-alt: "A normal distribution histogram with count on the y axis and average difference on the x axis. The histogram is centered at 0 and there is a vertical line a bit above 8 which represents the observed difference. The graph shows that the observed difference is outside the null distribution and is thus statistically significant. A p value is calculated to be 0."
 
 perm_stats |> 
   ggplot(aes(x = ave_diff_perm)) + 
@@ -117,7 +119,6 @@ I found that the p-value is 0 which means the result is statistically significan
 
 ### References
 
-Tidy Tuesday source:
-https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-02-25
+Tidy Tuesday source: https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-02-25
 
 Original source: The Wall Street Journal. (2019). Measles vaccination and exemption data. GitHub. https://github.com/WSJ/measles-data

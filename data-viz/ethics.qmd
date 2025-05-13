@@ -39,15 +39,15 @@ This creates the question of: Can you provide informed consent for applications 
 
 ### Were the data made publicly available?
 
-The algorithm that Pole created and the data about individuals’ "pregnancy scores" has not become publicly available. In this case, it is crucial to the privacy, autonomy, and well-being of Target customers that this data remains non-public. However, it is important to keep in mind that "non-public" does not mean private. Target could be selling this data to other companies so it is impossible to know who actually has access to this data and. Additionally, there could be some benefit to making the algorithm or anonymous data public so that the data science community can check for bias and keep Target accountable for their actions.
+The algorithm that Pole created and the data about individuals’ "pregnancy scores" has not become publicly available. In this case, it is crucial to the privacy, autonomy, and well-being of Target customers that this data remains non-public. However, it is important to keep in mind that "non-public" does not mean private. Target could be selling this data to other companies so it is impossible to know who actually has access to this data and what they are using it for. Additionally, there could be some benefit to making the algorithm or anonymous data public so that the data science community can check for bias and keep Target accountable for their actions.
 
 ### Who was measured? Are the representative of whom we want to generalize?
 
-Another ethical concern in this case study is representation. The individuals measured were regular Target shoppers who used loyalty cards or credit cards. This is not representative of the whole population and is likely skewed by demographics like income, age, and race. We don't know specifics of who and what was collected—this makes it impossible to see what biases exist in the data and thus the algorithm.
+One thing that should be considered when discussing ethics in data is representation in the data and who we are generalizing to. In this case, the individuals measured were regular Target shoppers who used loyalty cards or credit cards. While this is not representative of the whole population and is likely skewed by demographics like income, age, and race, it may not be as big of a concern in this case. Target is applying their algorithm to other target shoppers in which case the data is representative of the populations we are generalizing to.
 
-We need more information on the types of people that were measured and what demographics were collected to know if they are representative of the population to which the algorithm was applied, or to the public as a whole.
+### Conclusion 
 
-In conclusion, Targets "pregnancy predictor" raises many ethical questions surrounding data use and corporations use of data to predict sensitive health information about their customers.
+In conclusion, Targets "pregnancy predictor" raises many ethical questions surrounding data use and corporations use of data to predict sensitive health information about their customers. Working in the field of data science requires critical examination of our biases and consideration of ethical issues surrounding data.
 
 ### Sources:
 

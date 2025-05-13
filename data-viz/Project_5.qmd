@@ -4,6 +4,7 @@ format: html
 execute:
   echo: true
   warning: false
+  cache: true 
 
 author: Harper Noteboom
 published: 2025/03/05
@@ -14,6 +15,7 @@ published: 2025/03/05
 For this analysis I decided to look at a few different questions. First, I wanted to see if the number of police stops labeled as Vehicular in the state of California were changing over time. I was also interested to see if the rate of stops that resulted in arrests was also changing. I next wanted to see if there was any difference in the number of stops depending on the day of the month, I picked to look at data from San Francisco as it had data that spanned almost 10 years. Lastly, I wanted to see the racial breakdown of stops in Florida to see if there were differences in the rates of stops for different races. All of the data used in this analysis comes from the Stanford Open Policing Project.
 
 ```{r results='hide', warning=FALSE, message=FALSE}
+#| cache: false 
 library(tidyverse)
 library(ggplot2)
 library(DBI)
@@ -21,6 +23,8 @@ library(scales)
 ```
 
 ```{r results='hide', warning=FALSE, message=FALSE, echo=FALSE}
+#| cache: false 
+
 con_traffic <- DBI::dbConnect(
   RMariaDB::MariaDB(),
   dbname = "traffic",
@@ -121,7 +125,7 @@ HAVING subject_race IS NOT NULL
 
 ```
 
-The table above shows the race of individuals involved in police stops in Florida from 2010 to 2018. Over 56% of all subjects were white, and around 20% were hispanic and black. No real conclusions can be drawn from this data for multiple reasons. Officers often cannot ask people their race but must report it leading to officers making assumptions about subjects race. Biracial people might be inaccurately represented in the data and without knowing the racial make up of Florida, it is impossible to make any general claims about whether these rates are proportional to overall population or not.
+The table above shows the race of individuals involved in police stops in Florida from 2010 to 2018. Over 56% of all subjects were white, and around 20% were Hispanic and Black. No real conclusions can be drawn from this data for multiple reasons. Officers often cannot ask people their race but must report it leading to officers making assumptions about subjects race. Biracial people might be inaccurately represented in the data and without knowing the racial percentage break down of drivers in Florida, it is impossible to make any general claims about whether these rates are proportional to overall population or not.
 
 ## Conclusion
 

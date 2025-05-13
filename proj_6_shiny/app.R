@@ -82,7 +82,7 @@ server <- function(input, output, session) {
       pull(ParkName)
     
     if (input$plot_type == "bar") {
-      ggplot(filtered_data, aes(x = reorder(CategoryName, -count), y = count, fill = CategoryName)) +
+      ggplot(filtered_data, aes(x = reorder(CategoryName, -count), y = count, fill = reorder(CategoryName, -count))) +
         geom_col() +
         theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
         labs(
