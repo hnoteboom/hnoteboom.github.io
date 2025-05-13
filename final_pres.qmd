@@ -1,13 +1,12 @@
 ---
 title: "Final Presentation"
 author: "Harper Noteboom"
+subtitle: "May 13th 2025"
 format:
   revealjs:
-    theme: simple
     scrollable: true
     slide-number: true
     show-slide-number: all
-    self-contained: false
     embed-resources: true
 execute:
   echo: true
@@ -62,79 +61,80 @@ most_visited_nps_species_data |>
 ##Shiny Updates
 
 ::: panel-tabset
-##Shiny App 
+###Shiny App 
 - Used Shiny to make the database more interactive 
 
-<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0">
-
-</iframe>
+::: {.cell-output-display}
+<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0"></iframe>
+:::
 
 - Using reactive 
 
 - Loading the data in from TidyTuesday was taking too long and the Shiny App was crashing, so I used
 reactive 
 
-## UI
+### UI Code
 
-```{r}
+Here is the UI code for the Shiny app:
+
+```{r results='hide', message=FALSE, warning=FALSE, eval = FALSE}
+
 library(shiny)
 library(tidyverse)
 
 # Define UI
-ui <- fluidPage(
-  titlePanel("Species Categories by National Park"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        inputId = "selected_park",
-        label = "Choose a National Park:",
-        choices = NULL,  # Start with an empty list
-        selected = "ROMO"
-      ), 
-      radioButtons(
-        inputId = "plot_type",
-        label = "Select plot type:",
-        choices = c("Bar Chart" = "bar", "Pie Chart" = "pie"),
-        selected = "bar"
-      ),
-      selectInput(
-        inputId = "exclude",
-        label = "Exclude Species Categories:",
-        choices = NULL,  # Start with an empty list
-        multiple = TRUE,
-        selectize = TRUE
-      ), 
-      sliderInput(
-        inputId = "top_n",
-        label = "Number of species categories to show:",
-        min = 1,
-        max = 10,
-        value = 5
-      )
+sidebarLayout(
+  sidebarPanel(
+    selectInput(
+      inputId = "selected_park",
+      label = "Choose a National Park:",
+      choices = NULL,  # Start with an empty list
+      selected = "ROMO"
     ),
-    
-    mainPanel(
-      plotOutput("species_plot")
+    radioButtons(
+      inputId = "plot_type",
+      label = "Select plot type:",
+      choices = c("Bar Chart" = "bar", "Pie Chart" = "pie"),
+      selected = "bar"
+    ),
+    selectInput(
+      inputId = "exclude",
+      label = "Exclude Species Categories:",
+      choices = NULL,  # Start with an empty list
+      multiple = TRUE,
+      selectize = TRUE
+    ),
+    sliderInput(
+      inputId = "top_n",
+      label = "Number of species categories to show:",
+      min = 1,
+      max = 10,
+      value = 5
     )
+  ),
+  mainPanel(
+    plotOutput("species_plot")
   )
 )
 
 ```
 
+### Server Code 
 
-## Server
+Here is the server code for the Shiny App: 
 
-```{r}
+```{r results='hide', message=FALSE, warning=FALSE, eval = FALSE}
+
+library(shiny)
 # Define Server
 server <- function(input, output, session) {
   
-  # Load the data and park names reactively
+  # Load the data and park names with reactive
   most_visited_nps_species_data <- reactive({
     readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-10-08/most_visited_nps_species_data.csv', show_col_types = FALSE)
   })
   
-  # Get park choices reactively
+  # Get park choices with reactive
   park_choices <- reactive({
     most_visited_nps_species_data() |> 
       select(ParkName, ParkCode) |> 
@@ -142,12 +142,12 @@ server <- function(input, output, session) {
       arrange(ParkName)
   })
   
-  # Update the dropdown for parks dynamically
+  # Update the dropdown for parks
   observe({
     updateSelectInput(session, "selected_park", choices = setNames(park_choices()$ParkCode, park_choices()$ParkName), selected = "ROMO")
   })
   
-  # Update the exclude categories dynamically
+  # Update the exclude categories 
   observe({
     updateSelectInput(session, "exclude", choices = unique(most_visited_nps_species_data()$CategoryName))
   })
@@ -189,10 +189,8 @@ server <- function(input, output, session) {
   })
 }
 
-# Run the App
-shinyApp(ui = ui, server = server)
 ```
 
-# Thank You!
+## Thank you!! 
 
 
