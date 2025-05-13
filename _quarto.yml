@@ -17,16 +17,19 @@ website:
             href: data-viz/bechdel-test.qmd
           - text: "National Parks"
             href: data-viz/national-parks.qmd
+          - text: "National Parks - Interactive"
+            href: data-viz/national-park-interactive.qmd
       - text: "Simulation"
         href: simulation.qmd
       - text: "Data Ethics"
         href: ethics.qmd
       - text: "SQL Analysis"
         href: Project_5.qmd
-    
+      - text: "Final Presentation"
+        href: final_pres.qmd
 format:
   html:
-    theme: jolla
+    theme: minty
     css: styles.css
     toc: true
     page-layout: full

@@ -39,7 +39,7 @@ This creates the question of: Can you provide informed consent for applications 
 
 ### Were the data made publicly available?
 
-The algorithm that Pole created and the data about individuals’ "pregnancy scores" has not become publicly available. In this case, it is crucial to the privacy, autonomy, and well-being of Target customers that this data remains non-public. However, there could be some benefit to making the algorithm or anonymous data public so that the data science community can check for bias and keep Target accountable for their actions.
+The algorithm that Pole created and the data about individuals’ "pregnancy scores" has not become publicly available. In this case, it is crucial to the privacy, autonomy, and well-being of Target customers that this data remains non-public. However, it is important to keep in mind that "non-public" does not mean private. Target could be selling this data to other companies so it is impossible to know who actually has access to this data and. Additionally, there could be some benefit to making the algorithm or anonymous data public so that the data science community can check for bias and keep Target accountable for their actions.
 
 ### Who was measured? Are the representative of whom we want to generalize?
 

@@ -12,6 +12,10 @@ published: 2025/04/01
 ### Simulation
 
 ```{r results='hide', warning=FALSE, message=FALSE}
+
+#| code-fold: true
+#| code-summary: "R packages and Data Loading"
+
 library(tidyverse)
 
 measles <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-02-25/measles.csv')
@@ -31,7 +35,7 @@ For this project I have conducted a permutation test on vaccine rates among diff
 -   Kindergarten
 -   BOCES
 
-Public schools are those funded by the government. Private schools are privately owned and not government funded. Charter schools are also publicly funded but operate outside of the established state school system. Kindergarten are schools for only elementary school students. BOCES is a special program in New York that serves as an extension of publicly funded schools. Despite being publicly funded, charter schools have more flexibility than regular public schools when it comes to curriculum and operations. I wanted to see if this flexibility made a difference in vaccination rates.
+Public schools are those funded by the government. Private schools are privately owned and not government funded. Charter schools are also publicly funded but operate outside of the established state school system. Kindergarten are schools for only elementary school students. BOCES is a special program in New York that serves as an extension of publicly funded schools. Despite being publicly funded, charter schools have more flexibility than regular public schools when it comes to curriculum and operations. I wanted to see if this flexibility made a difference in vaccination rates. The population to which I am generalizing is all schools in the US in the years between 2017 and 2019. 
 
 My research question is:
 
@@ -43,30 +47,34 @@ $H_A$ = $\mu_{\text{public}} > \mu_{\text{charter}}$
 The graph below shows the average vaccination rate for Public and Charter Schools.
 
 ```{r}
+
+#| code-fold: true
+#| code-summary: "Data Filtering and Box Plot Creation"
+
 c_p_measles <- measles |> 
   select(type, mmr) |> 
   filter(type == "Charter" | type == "Public") |>
-  group_by(type) |>
-  filter(mmr > 1)|>
-  summarize(ave_rate = mean(mmr))
+  filter(mmr > 1)  #Filtering out because MMR is an optional variable, default is -1 or 1. 
 
-ggplot(c_p_measles, aes(x = type, y = ave_rate, fill = type)) +
-  geom_col()+ 
+ggplot(c_p_measles, aes(x = type, y = mmr, fill = type)) +
+  geom_boxplot() +
   labs(
     x = "School Type", 
-    y = "Average Vaccination Rate", 
-    title = "MMR Vaccination Rate at Different Schools"
+    y = "MMR Vaccination Rate", 
+    title = "Distribution of MMR Vaccination Rates by School Type"
   )
+
 ```
 
-```{r}
-c_p_measles |> 
-  summarize(ave_diff = diff(ave_rate))
-```
+The box plot above shows MMR vaccine rates for Public and Charter Schools. Most public schools have consistently high MMR rates, which can be seen in the high median, but there’s a sizable minority with alarmingly low rates, making them statistical outliers. Charter schools show more variation in vaccination rates. The variation is more evenly spread, with fewer extreme low performers than public schools.
 
 I found that the difference between the average vaccine rates for Public and Charter schools to be 8.211511. To test if this is outside the null distribution, I conducted a permutation test in which I scrambled the mmr rates. The histogram of the null distribution can be seen below and the red line marks the observed difference between vaccination rates.
 
 ```{r}
+
+#| code-fold: true
+#| code-summary: "Permutation Test"
+
 perm_test <- function(rep, data) {
   data |>
     select(type, mmr) |> 
@@ -85,6 +93,13 @@ perm_stats <-
   map(c(1:500), perm_test, data = measles) |> 
   list_rbind() 
 
+```
+
+```{r}
+
+#| code-fold: true
+#| code-summary: "Histogram Creation"
+
 perm_stats |> 
   ggplot(aes(x = ave_diff_perm)) + 
   geom_histogram(bins = 50) + 
@@ -96,14 +111,13 @@ perm_stats |>
 
 perm_stats |> 
   summarize(p_val_ave = mean(ave_diff_perm > ave_diff))
-
 ```
 
-I found that the p-value is 0 which means the result is statistically significant as p-value \< 0.05. Therefore we can accept the alternative hypothesis and say that on average,public schools have higher vaccination rates than charter schools.
+I found that the p-value is 0 which means the result is statistically significant as p-value \< 0.05. Therefore we can accept the alternative hypothesis and say that on average, public schools in the US have higher vaccination rates than charter schools.
 
 ### References
 
-Tidy Tuesday source:\
+Tidy Tuesday source:
 https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-02-25
 
-Original source: https://github.com/WSJ/measles-data
+Original source: The Wall Street Journal. (2019). Measles vaccination and exemption data. GitHub. https://github.com/WSJ/measles-data

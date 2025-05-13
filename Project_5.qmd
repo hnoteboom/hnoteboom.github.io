@@ -123,15 +123,14 @@ HAVING subject_race IS NOT NULL
 
 The table above shows the race of individuals involved in police stops in Florida from 2010 to 2018. Over 56% of all subjects were white, and around 20% were hispanic and black. No real conclusions can be drawn from this data for multiple reasons. Officers often cannot ask people their race but must report it leading to officers making assumptions about subjects race. Biracial people might be inaccurately represented in the data and without knowing the racial make up of Florida, it is impossible to make any general claims about whether these rates are proportional to overall population or not.
 
-## Conclusion 
+## Conclusion
 
-In conclusion, data from the Stanford Open Policing Project shows that between 2011 and 2015 the number of police stops consistently decreased in the state of California but the arrest rate remained the same. According to data from San Francisco there is no significant difference in police stops on different days of the month. And the majority of people stopped in Florida between 2010 and 2018 were reported to be white. 
+In conclusion, data from the Stanford Open Policing Project shows that between 2011 and 2015 the number of police stops consistently decreased in the state of California but the arrest rate remained the same. According to data from San Francisco there is no significant difference in police stops on different days of the month. And the majority of people stopped in Florida between 2010 and 2018 were reported to be white.
 
+## References
 
-## References 
 Pierson, Emma, Camelia Simoiu, Jan Overgoor, Sam Corbett-Davies, Daniel Jenson, Amy Shoemaker, Vignesh Ramachandran, et al. 2020. “A Large-Scale Analysis of Racial Disparities in Police Stops Across the United States.” Nature Human Behaviour, 1–10.
 
 ```{r}
 dbDisconnect(con_traffic)
 ```
-
