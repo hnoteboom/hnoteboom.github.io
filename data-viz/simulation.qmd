@@ -12,7 +12,6 @@ published: 2025/04/01
 ### Simulation
 
 ```{r results='hide', warning=FALSE, message=FALSE}
-
 #| code-fold: true
 #| code-summary: "R packages and Data Loading"
 
@@ -47,7 +46,6 @@ $H_A$ = $\mu_{\text{public}} > \mu_{\text{charter}}$
 The graph below shows the average vaccination rate for Public and Charter Schools.
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Data Filtering and Box Plot Creation"
 #| fig-alt: "Box Plot with average mmr vaccine rate on the y axis and charter school and public school on the x axis. The box for charter schools is bigger with a max of around 95 and a min of around 80 and a median line at around 88. The top whisker extends to 100 and the bottom whisker to 65. There are around 12 outliers stretching down to 25. The public box is smaller with a max of 100 and a min of 95 and a median of 99. There are lots of outliers stretching from 85 to 0. The graph shows the variation of vaccine rates in charter schools and the high median in public schools, with more outliers."
@@ -72,7 +70,6 @@ The box plot above shows MMR vaccine rates for Public and Charter Schools. Most 
 I found that the difference between the average vaccine rates for Public and Charter schools to be 8.211511. To test if this is outside the null distribution, I conducted a permutation test in which I scrambled the mmr rates. The histogram of the null distribution can be seen below and the red line marks the observed difference between vaccination rates.
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Permutation Test"
 
@@ -97,7 +94,6 @@ perm_stats <-
 ```
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Histogram Creation"
 #| fig-alt: "A normal distribution histogram with count on the y axis and average difference on the x axis. The histogram is centered at 0 and there is a vertical line a bit above 8 which represents the observed difference. The graph shows that the observed difference is outside the null distribution and is thus statistically significant. A p value is calculated to be 0."

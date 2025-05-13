@@ -17,7 +17,6 @@ library(tidyverse)
 ```
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Filtering and Plot Creation"
 #| fig-alt: "Bar graph of the 7 most popular categories of species in Rocky Mountain national park. The x axis has categories of species, in order of highest to lowest number of species : Vasular Plants, Insects, Non-Vascular Plants, Fungi, Birds, Chromista and Mammal. The y axis has number of species and a range from 0 to 1200. There are significantly more species of Vasular Plants than any other category."

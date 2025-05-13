@@ -44,7 +44,6 @@ board_games |>
 Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called category in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Plot creation - number of war games published per year"
 #| fig-alt: "Line graph representing the number of war games published per year from 1955 to 2016, with year on the x axis and count on the y axis. There is a sharp increase from 1970 to 1980, sharp variation from 1980 to 2000 and then a dramatic increase between 2000 and 2010."
@@ -71,7 +70,6 @@ labs(
 ```
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Plot creation - proportion of war games published per year"
 #| fig-alt: "Line graph representing the proportion of war games published per year from 1955 to 2016, with year on the x axis and count on the y axis. There is a decrease from 1960 to 1970 and then a sharp increase until 1980 where it falls until 2000 and increases slightly in 2010."
@@ -91,7 +89,6 @@ The first graph shows a sharp increase in the number of war games released betwe
 ### Analysis 3
 
 ```{r}
-
 #| code-fold: true
 #| code-summary: "Tibble of war and average rating"
 
