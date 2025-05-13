@@ -1224,25 +1224,19 @@ Harper Noteboom
 <section id="project-1" class="slide level2">
 <h2>Project 1</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-2-1">Overview</a></li><li><a href="#tabset-2-2">Data</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-1-1">Overview</a></li><li><a href="#tabset-1-2">Data</a></li><li><a href="#tabset-1-3">Original Project</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
+<div id="tabset-1-1">
 <ul>
 <li><p>National Parks Service Data on the 15 most popular National Parks</p></li>
 <li><p>Data about every species in the park</p></li>
 <li><p>Analyzed species categories (ex: Mammal, Insect, Plant)</p></li>
 </ul>
 </div>
-<div id="tabset-2-2">
-<pre><code>::: {.cell}
-
-:::
-
-::: {.cell}
-::: {.cell-output .cell-output-stdout}
-
-```
-# A tibble: 6 × 28
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 28
   ParkCode ParkName          CategoryName Order Family TaxonRecordStatus SciName
   &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;             &lt;chr&gt;  
 1 ACAD     Acadia National … Mammal       Arti… Cervi… Active            Alces …
@@ -1256,13 +1250,14 @@ Harper Noteboom
 #   OccurrenceTags &lt;chr&gt;, Nativeness &lt;chr&gt;, NativenessTags &lt;chr&gt;,
 #   Abundance &lt;chr&gt;, NPSTags &lt;chr&gt;, ParkTags &lt;chr&gt;, References &lt;dbl&gt;,
 #   Observations &lt;dbl&gt;, Vouchers &lt;dbl&gt;, ExternalLinks &lt;lgl&gt;, TEStatus &lt;chr&gt;,
-#   StateStatus &lt;chr&gt;, OzoneSensitiveStatus &lt;chr&gt;, GRank &lt;chr&gt;, SRank &lt;chr&gt;
-```
-
-
-:::
-:::</code></pre>
-<p>##Original Project - Originally, explored the species categories in Rocky Mountain National Park.</p>
+#   StateStatus &lt;chr&gt;, OzoneSensitiveStatus &lt;chr&gt;, GRank &lt;chr&gt;, SRank &lt;chr&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<ul>
+<li>Originally, explored the species categories in Rocky Mountain National Park.</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>most_visited_nps_species_data <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a></a>  <span class="fu">filter</span>(ParkCode <span class="sc">==</span> <span class="st">&quot;ROMO&quot;</span>) <span class="sc">|&gt;</span> </span>
@@ -1286,11 +1281,24 @@ Harper Noteboom
 </div>
 </div>
 </div>
-<p>##Shiny Updates</p>
+</div>
+</div>
+</div>
+</section>
+<section id="shiny-updates" class="slide level2">
+<h2>Shiny Updates</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-1-1">UI Code</a></li><li><a href="#tabset-1-2">Server Code</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-2-1">Shiny App</a></li><li><a href="#tabset-2-2">UI Code</a></li><li><a href="#tabset-2-3">Server Code</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
+<div id="tabset-2-1">
+<ul>
+<li><p>Used Shiny to make the database more interactive</p></li>
+<li><p>Using reactive</p></li>
+</ul>
+<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0" data-external="1">
+</iframe>
+</div>
+<div id="tabset-2-2">
 <p>Here is the UI code for the Shiny app:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(shiny)</span>
@@ -1332,7 +1340,7 @@ Harper Noteboom
 <span id="cb3-37"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-1-2">
+<div id="tabset-2-3">
 <p>Here is the server code for the Shiny App:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(shiny)</span>
@@ -1399,19 +1407,16 @@ Harper Noteboom
 <span id="cb4-62"><a></a>  })</span>
 <span id="cb4-63"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+</div>
+</section>
 <section id="thank-you" class="slide level2">
 <h2>Thank you!!</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>

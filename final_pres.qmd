@@ -17,7 +17,7 @@ execute:
 ## Project 1
 
 ::: panel-tabset
-### Overview
+## Overview
 
 -   National Parks Service Data on the 15 most popular National Parks
 
@@ -25,19 +25,19 @@ execute:
 
 -   Analyzed species categories (ex: Mammal, Insect, Plant)
 
-### Data
+## Data
 
-    ```{r echo = FALSE, results = "hide", message=FALSE, warning=FALSE}
+```{r echo = FALSE, results = "hide", message=FALSE, warning=FALSE}
     library(tidyverse)
     
     most_visited_nps_species_data <-   readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-10-08/most_visited_nps_species_data.csv', show_col_types = FALSE)
-    ```
+```
 
-    ```{r echo=FALSE}
+```{r echo=FALSE}
     head(most_visited_nps_species_data)
-    ```
+```
     
-##Original Project 
+## Original Project 
   - Originally, explored the species categories in Rocky Mountain National Park. 
   
 ```{r}
@@ -57,22 +57,22 @@ most_visited_nps_species_data |>
     )
 
 ```
-  
-##Shiny Updates
-
-::: panel-tabset
-###Shiny App 
-- Used Shiny to make the database more interactive 
-
-::: {.cell-output-display}
-<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0"></iframe>
 :::
 
-- Using reactive 
 
-- Loading the data in from TidyTuesday was taking too long and the Shiny App was crashing, so I used reactive 
+## Shiny Updates
 
-### UI Code
+:::: panel-tabset
+## Shiny App 
+- Used Shiny to make the database more interactive 
+
+- Using reactive
+
+<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0" data-external="1"></iframe>
+
+ 
+
+## UI Code
 
 Here is the UI code for the Shiny app:
 
@@ -118,7 +118,7 @@ sidebarLayout(
 
 ```
 
-### Server Code 
+## Server Code 
 
 Here is the server code for the Shiny App: 
 
@@ -189,6 +189,7 @@ server <- function(input, output, session) {
 }
 
 ```
+::::
 
 ## Thank you!! 
 
