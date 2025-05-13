@@ -21,7 +21,7 @@ execute:
 
 -   National Parks Service Data on the 15 most popular National Parks
 
--   Data about every species in the park 
+-   Data about every species in the park
 
 -   Analyzed species categories (ex: Mammal, Insect, Plant)
 
@@ -36,10 +36,11 @@ execute:
 ```{r echo=FALSE}
     head(most_visited_nps_species_data)
 ```
-    
-## Original Project 
-  - Originally, explored the species categories in Rocky Mountain National Park. 
-  
+
+## Original Project
+
+-   Originally, explored the species categories in Rocky Mountain National Park.
+
 ```{r}
 most_visited_nps_species_data |> 
   filter(ParkCode == "ROMO") |> 
@@ -59,18 +60,18 @@ most_visited_nps_species_data |>
 ```
 :::
 
-
 ## Shiny Updates
 
-:::: panel-tabset
-## Shiny App 
-- Used Shiny to make the database more interactive 
+::: panel-tabset
+## Shiny App
 
-- Using reactive
+-   Used Shiny to make the database more interactive
 
-<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0" data-external="1"></iframe>
+-   Using reactive
 
- 
+<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0" data-external="1">
+
+</iframe>
 
 ## UI Code
 
@@ -118,9 +119,9 @@ sidebarLayout(
 
 ```
 
-## Server Code 
+## Server Code
 
-Here is the server code for the Shiny App: 
+Here is the server code for the Shiny App:
 
 ```{r results='hide', message=FALSE, warning=FALSE, eval = FALSE}
 
@@ -189,8 +190,6 @@ server <- function(input, output, session) {
 }
 
 ```
-::::
+:::
 
-## Thank you!! 
-
-
+## Thank you!!

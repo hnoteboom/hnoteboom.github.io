@@ -156,10 +156,6 @@ window.Quarto = {
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../text-analysis.qmd"> 
-<span class="menu-text">Full Text Analysis</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Data Viz</span>
@@ -188,6 +184,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../data-viz/Project_5.html">
  <span class="dropdown-text">SQL Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data-viz/text-analysis.html">
+ <span class="dropdown-text">Full Text Analysis</span></a>
   </li>  
     </ul>
   </li>
@@ -280,7 +280,7 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Data Filtering and Box Plot Creation"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.alt: "Box Plot with average mmr vaccine rate on the y axis and charter school and public school on the x axis. The box for charter schools is bigger with a max of around 95 and a min of around 80 and a median line at around 88. The top whisker extends to 100 and the bottom whisker to 65. There are around 12 outliers stretching down to 25. The public box is smaller with a max of 100 and a min of 95 and a median of 99. There are lots of outliers stretching from 85 to 0. The graph shows the variation of vaccine rates in charter schools and the high median in public schools, with more outliers."</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "Box Plot with average mmr vaccine rate on the y axis and charter school and public school on the x axis. The box for charter schools is bigger with a max of around 95 and a min of around 80 and a median line at around 88. The top whisker extends to 100 and the bottom whisker to 65. There are around 12 outliers stretching down to 25. The public box is smaller with a max of 100 and a min of 95 and a median of 99. There are lots of outliers stretching from 85 to 0. The graph shows the variation of vaccine rates in charter schools and the high median in public schools, with more outliers."</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>c_p_measles <span class="ot">&lt;-</span> measles <span class="sc">|&gt;</span> </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(type, mmr) <span class="sc">|&gt;</span> </span>
@@ -329,7 +329,7 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Histogram Creation"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.alt: "A normal distribution histogram with count on the y axis and average difference on the x axis. The histogram is centered at 0 and there is a vertical line a bit above 8 which represents the observed difference. The graph shows that the observed difference is outside the null distribution and is thus statistically significant. A p value is calculated to be 0."</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "A normal distribution histogram with count on the y axis and average difference on the x axis. The histogram is centered at 0 and there is a vertical line a bit above 8 which represents the observed difference. The graph shows that the observed difference is outside the null distribution and is thus statistically significant. A p value is calculated to be 0."</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>perm_stats <span class="sc">|&gt;</span> </span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ave_diff_perm)) <span class="sc">+</span> </span>
