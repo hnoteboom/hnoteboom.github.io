@@ -27,8 +27,6 @@ website:
             href: data-viz/text-analysis.qmd
       - text: "Final Presentation"
         href: final_pres.qmd
-      - text: "Article"
-        href: articles.qmd
 format:
   html:
     theme: jolla
