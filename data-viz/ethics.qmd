@@ -45,7 +45,7 @@ The algorithm that Pole created and the data about individuals’ "pregnancy sco
 
 One thing that should be considered when discussing ethics in data is representation in the data and who we are generalizing to. In this case, the individuals measured were regular Target shoppers who used loyalty cards or credit cards. While this is not representative of the whole population and is likely skewed by demographics like income, age, and race, it may not be as big of a concern in this case. Target is applying their algorithm to other target shoppers in which case the data is representative of the populations we are generalizing to.
 
-### Conclusion 
+### Conclusion
 
 In conclusion, Targets "pregnancy predictor" raises many ethical questions surrounding data use and corporations use of data to predict sensitive health information about their customers. Working in the field of data science requires critical examination of our biases and consideration of ethical issues surrounding data.
 
