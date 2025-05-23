@@ -9,6 +9,8 @@ website:
     left:
       - text: About
         href: index.qmd
+      - text: Article 
+        href: articles.qmd
       - text: Data Viz
         menu:
           - text: "Bechdel Test"
