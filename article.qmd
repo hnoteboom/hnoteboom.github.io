@@ -1,0 +1,8 @@
+---
+title: "Articles"
+format: html
+---
+
+Here's an article I wrote for the travel magazine, Catalyst Planet about my travels in Vietnam!
+
+[![Preview of Ha Giang article](ha_giang_preview.png)](https://www.catalystplanet.com/travel-and-social-action-stories/an-epic-motorbike-journey-through-northeast-vietnam?rq=ha%20giang)
