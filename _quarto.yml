@@ -25,8 +25,7 @@ website:
             href: data-viz/Project_5.qmd
           - text: "Full Text Analysis" 
             href: data-viz/text-analysis.qmd
-      - text: "Final Presentation"
-        href: final_pres.qmd
+
 format:
   html:
     theme: jolla
