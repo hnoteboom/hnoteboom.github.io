@@ -1,5 +1,5 @@
 ---
-title: "Project_5"
+title: "SQL Analysis"
 format: html
 execute:
   echo: true
@@ -16,6 +16,8 @@ For this analysis I decided to look at a few different questions. First, I wante
 
 ```{r results='hide', warning=FALSE, message=FALSE}
 #| cache: false 
+#| code-fold: true
+#| code-summary: "R packages and Data Loading"
 library(tidyverse)
 library(ggplot2)
 library(DBI)
@@ -35,7 +37,8 @@ con_traffic <- DBI::dbConnect(
 ```
 
 ```{sql connection=con_traffic}
-
+#| code-fold: true
+#| code-summary: "Connection to database"
 SELECT 
   YEAR(date) AS year, 
   MIN(date) as start_date, 
@@ -49,6 +52,8 @@ I used the table above to see the dates that the data spanned. Since the start d
 
 ```{sql connection=con_traffic}
 #| output.var: "arrests_ca_statewide"
+#| code-fold: true
+#| code-summary: "California Arrests Table Creation"
 
 SELECT 
   YEAR(date) AS year, 
@@ -70,6 +75,8 @@ arrests_ca_statewide
 The table above shows the number of vehicular traffic stops in the state of California for the years between 2010 and 2015. The arrested column represents the percentage of vehicular stops that resulted in arrest. There is consistently around 3% of stops resulting in arrests.
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Graph Creation"
 arrests_ca_statewide <- arrests_ca_statewide |> 
   mutate(year = as.character(year), count = as.numeric(count)) 
 
@@ -89,6 +96,8 @@ The graph above shows the number of police stops recorded as vehicular in the st
 
 ```{sql connection=con_traffic}
 #| output.var: "date_count_sf"
+#| code-fold: true
+#| code-summary: "Day Count Table Creation"
 
 SELECT DAY(date) AS day, COUNT(*) AS count
 FROM ca_san_francisco_2020_04_01
@@ -99,6 +108,8 @@ LIMIT 0, 31;
 ```
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Graph Creation"
 date_count_sf |> 
   mutate(count = as.numeric(count))|> 
   ggplot(aes(x = day, y = count))+ 
@@ -114,6 +125,8 @@ date_count_sf |>
 The graph above shows police stops for different days of the month in San Francisco. The data spans all stops from 2007 to 2016. There is a common myth that you are more likely to be pulled over toward the end of the month because police departments need to meet a monthly quota. This data shows no real difference in stop rates between different days of the month. There is some variation among the days which is to be expected. The last days of the month, the 29th, 30th and 31st have the lowest rates with the 31st having significantly less than any other day. This is because not every month has 31 days (or even 29 in the case of February), so naturally there will be less stops on those days of the month.
 
 ```{sql connection=con_traffic}
+#| code-fold: true
+#| code-summary: "Race Table Creation"
 
 SELECT 
   subject_race, 

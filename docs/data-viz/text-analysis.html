@@ -127,10 +127,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../articles.html"> 
-<span class="menu-text">Article</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Data Viz</span>
@@ -224,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="dataset" class="level3">
 <h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
-<p>The data I have chosen is about board games that were released between 1950 and 2016. The data comes from the site BoardGameGeek which is a website for board game enthusiasts that features reviews, forums, and board game data. The dataset has information about each games category, release date, description, average rating, and more.</p>
+<p>Using a database from BoardGameGeek, a website for board game enthusiasts that features reviews, forums, and board game data, I conducted a full text analysis on games realsed between 1950 and 2016. The dataset has information about each games category, release date, description, average rating, and more.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>R Packages and Data Loading</summary>
@@ -266,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="analysis-2" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-2">Analysis 2</h3>
-<p>Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called category in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.</p>
+<p>Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called ‘category’ in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Plot creation - number of war games published per year</summary>

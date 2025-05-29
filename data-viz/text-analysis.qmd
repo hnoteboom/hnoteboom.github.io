@@ -11,7 +11,7 @@ published: 2025/03/05
 
 ### Dataset
 
-The data I have chosen is about board games that were released between 1950 and 2016. The data comes from the site BoardGameGeek which is a website for board game enthusiasts that features reviews, forums, and board game data. The dataset has information about each games category, release date, description, average rating, and more.
+Using a database from BoardGameGeek, a website for board game enthusiasts that features reviews, forums, and board game data, I conducted a full text analysis on games realsed between 1950 and 2016. The dataset has information about each games category, release date, description, average rating, and more.
 
 ```{r results='hide', warning=FALSE, message=FALSE}
 #| code-fold: true
@@ -41,7 +41,7 @@ board_games |>
 
 ### Analysis 2
 
-Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called category in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.
+Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called 'category' in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.
 
 ```{r}
 #| code-fold: true
