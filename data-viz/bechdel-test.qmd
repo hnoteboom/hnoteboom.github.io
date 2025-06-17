@@ -1,0 +1,53 @@
+---
+title: "Bechdel Test"
+format: html
+execute:
+  echo: false
+  warning: false
+author: Harper Noteboom
+published: 2025/02/19
+---
+
+The Bechdel Test is a test developed by Liz Wallace and Alison Bechdel to measure the representation of women in media, especially film. To pass the test, the film must have two named female characters who have a conversation about something other than a man.
+
+The data used comes from a tidy Tuesday dataset with IMDB ratings and Bechdel test results for movies from 1970-2013.
+
+```{r}
+#| code-fold: true
+#| code-summary: "R Packages"
+library(tidyverse)
+
+#manually loading the data 
+
+raw_bechdel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-03-09/raw_bechdel.csv')
+movies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-03-09/movies.csv')
+
+```
+
+```{r}
+
+#| code-fold: true
+#| code-summary: "Data Filtering and Plot Creation"
+#| fig-alt: "Bar graph of average IMDB movie rating for movies that pass and fail the Bechdel test. The data is grouped into 2 bar graphs, movies that pass the Bechdel test and movies that don't. Ratings are slightly higher for movies that fail, movies that fail have an average rating of 6.89 and movies that pass have an average rating of 6.6."
+
+av_rating_movies <- movies |> 
+  group_by(binary) |>
+  summarize(av_imdb_rating = mean(imdb_rating, na.rm = TRUE))
+
+ggplot(av_rating_movies, aes(x = binary, y = av_imdb_rating, fill = binary)) + 
+  geom_bar(stat = "identity")+ 
+  labs(
+    x = "Bechdel Test Result",
+    y = "Average IMDB rating", 
+    title = "Bechdel Test Result vs Average IMDB Rating", 
+    fill = "Bechdel Test Result"
+  )
+```
+
+The figure above shows the average IMDB rating for movies that pass and fail the Bechdel Test. The graph shows slightly higher ratings for movies that Fail the test rather than those that Pass. Movies that fail have an average rating of 6.89 and movies that pass have an average rating of 6.6.
+
+## References:
+
+Original Source: https://bechdeltest.com/
+
+TidyTuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-03-09/readme.md

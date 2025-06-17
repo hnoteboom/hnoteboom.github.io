@@ -1,0 +1,195 @@
+---
+title: "Final Presentation"
+author: "Harper Noteboom"
+subtitle: "May 13th 2025"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Project 1
+
+::: panel-tabset
+## Overview
+
+-   National Parks Service Data on the 15 most popular National Parks
+
+-   Data about every species in the park
+
+-   Analyzed species categories (ex: Mammal, Insect, Plant)
+
+## Data
+
+```{r echo = FALSE, results = "hide", message=FALSE, warning=FALSE}
+    library(tidyverse)
+    
+    most_visited_nps_species_data <-   readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-10-08/most_visited_nps_species_data.csv', show_col_types = FALSE)
+```
+
+```{r echo=FALSE}
+    head(most_visited_nps_species_data)
+```
+
+## Original Project
+
+-   Originally, explored the species categories in Rocky Mountain National Park.
+
+```{r}
+most_visited_nps_species_data |> 
+  filter(ParkCode == "ROMO") |> 
+  group_by(CategoryName) |> 
+  summarize(count = n()) |> 
+  filter(count > 50) |> 
+  ggplot(aes(x = reorder(CategoryName, -count), y = count, fill = CategoryName)) + 
+    geom_col() + 
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(
+      x = "Species Category", 
+      y = "Number of species",
+      title = "Categories of Species in Rocky Mountain National Park",
+      fill = "Category"
+    )
+
+```
+:::
+
+## Shiny Updates
+
+::: panel-tabset
+## Shiny App
+
+-   Used Shiny to make the database more interactive
+
+-   Using reactive
+
+<iframe src="https://harper-noteboom.shinyapps.io/proj_6_shiny/" width="100%" height="600px" frameborder="0" data-external="1">
+
+</iframe>
+
+## UI Code
+
+Here is the UI code for the Shiny app:
+
+```{r results='hide', message=FALSE, warning=FALSE, eval = FALSE}
+
+library(shiny)
+library(tidyverse)
+
+# Define UI
+sidebarLayout(
+  sidebarPanel(
+    selectInput(
+      inputId = "selected_park",
+      label = "Choose a National Park:",
+      choices = NULL,  # Start with an empty list
+      selected = "ROMO"
+    ),
+    radioButtons(
+      inputId = "plot_type",
+      label = "Select plot type:",
+      choices = c("Bar Chart" = "bar", "Pie Chart" = "pie"),
+      selected = "bar"
+    ),
+    selectInput(
+      inputId = "exclude",
+      label = "Exclude Species Categories:",
+      choices = NULL,  # Start with an empty list
+      multiple = TRUE,
+      selectize = TRUE
+    ),
+    sliderInput(
+      inputId = "top_n",
+      label = "Number of species categories to show:",
+      min = 1,
+      max = 10,
+      value = 5
+    )
+  ),
+  mainPanel(
+    plotOutput("species_plot")
+  )
+)
+
+```
+
+## Server Code
+
+Here is the server code for the Shiny App:
+
+```{r results='hide', message=FALSE, warning=FALSE, eval = FALSE}
+
+library(shiny)
+# Define Server
+server <- function(input, output, session) {
+  
+  # Load the data and park names with reactive
+  most_visited_nps_species_data <- reactive({
+    readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-10-08/most_visited_nps_species_data.csv', show_col_types = FALSE)
+  })
+  
+  # Get park choices with reactive
+  park_choices <- reactive({
+    most_visited_nps_species_data() |> 
+      select(ParkName, ParkCode) |> 
+      distinct() |> 
+      arrange(ParkName)
+  })
+  
+  # Update the dropdown for parks
+  observe({
+    updateSelectInput(session, "selected_park", choices = setNames(park_choices()$ParkCode, park_choices()$ParkName), selected = "ROMO")
+  })
+  
+  # Update the exclude categories 
+  observe({
+    updateSelectInput(session, "exclude", choices = unique(most_visited_nps_species_data()$CategoryName))
+  })
+  
+  # Filtering and creating the plot
+  output$species_plot <- renderPlot({
+    filtered_data <- most_visited_nps_species_data() |>
+      filter(ParkCode == input$selected_park) |>
+      filter(!CategoryName %in% input$exclude) |>
+      group_by(CategoryName) |>
+      summarize(count = n()) |>
+      arrange(desc(count))|>
+      head(input$top_n)
+    
+    park_name <- park_choices() |>
+      filter(ParkCode == input$selected_park) |>
+      pull(ParkName)
+    
+    if (input$plot_type == "bar") {
+      ggplot(filtered_data, aes(x = reorder(CategoryName, -count), y = count, fill = CategoryName)) +
+        geom_col() +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+        labs(
+          x = "Species Category",
+          y = "Number of Species",
+          title = paste("Bar Graph of Species Categories in", park_name),
+          fill = "Category"
+        )
+    } else if (input$plot_type == "pie") {
+      ggplot(filtered_data, aes(x = "", y = count, fill = CategoryName)) +
+        geom_bar(width = 1, stat = "identity") +
+        coord_polar("y") +
+        theme_void() +
+        labs(
+          title = paste("Pie Chart of Species Categories in", park_name),
+          fill = "Category"
+        )
+    }
+  })
+}
+
+```
+:::
+
+## Thank you!!
