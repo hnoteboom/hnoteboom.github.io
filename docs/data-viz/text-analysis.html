@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Harper Noteboom">
 
-<title>JavaScript Analysis Using Observable – Harper Noteboom</title>
+<title>Full Text Analysis – Harper Noteboom</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Harper Noteboom</span>
     </a>
   </div>
@@ -89,15 +124,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./article.html"> 
+    <a class="nav-link" href="../article.html"> 
 <span class="menu-text">Article</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./observable_1.html" aria-current="page"> 
+    <a class="nav-link" href="../observable_1.html"> 
 <span class="menu-text">Data Viz in JavaScript</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -106,31 +141,31 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-viz-in-r">    
         <li>
-    <a class="dropdown-item" href="./data-viz/bechdel-test.html">
+    <a class="dropdown-item" href="../data-viz/bechdel-test.html">
  <span class="dropdown-text">Bechdel Test</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-viz/national-parks.html">
+    <a class="dropdown-item" href="../data-viz/national-parks.html">
  <span class="dropdown-text">National Parks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-viz/national-park-interactive.html">
+    <a class="dropdown-item" href="../data-viz/national-park-interactive.html">
  <span class="dropdown-text">National Parks - Interactive</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-viz/simulation.html">
+    <a class="dropdown-item" href="../data-viz/simulation.html">
  <span class="dropdown-text">Simulation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-viz/ethics.html">
+    <a class="dropdown-item" href="../data-viz/ethics.html">
  <span class="dropdown-text">Data Ethics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-viz/Project_5.html">
+    <a class="dropdown-item" href="../data-viz/Project_5.html">
  <span class="dropdown-text">SQL Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-viz/text-analysis.html">
+    <a class="dropdown-item" href="../data-viz/text-analysis.html">
  <span class="dropdown-text">Full Text Analysis</span></a>
   </li>  
     </ul>
@@ -146,21 +181,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1">Analysis 1</a></li>
+  <li><a href="#analysis-2" id="toc-analysis-2" class="nav-link" data-scroll-target="#analysis-2">Analysis 2</a></li>
+  <li><a href="#analysis-3" id="toc-analysis-3" class="nav-link" data-scroll-target="#analysis-3">Analysis 3</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">JavaScript Analysis Using Observable</h1>
+<h1 class="title">Full Text Analysis</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harper Noteboom </p>
+          </div>
+  </div>
     
   
     
@@ -171,15 +222,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In the fall of 2025 I took Data Visualization at Harvey Mudd College with Professor Sophie Engle. We worked in Observable using a combination of Markdown, HTML, CSS, and JavaScript and made visualizations with both Observable Plot and D3. My public Observable notebooks can be seen <a href="https://observablehq.com/@personal-projects17?tab=notebooks">here!</a></p>
-<div class="quarto-figure quarto-figure-center">
+<section id="dataset" class="level3">
+<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
+<p>Using a database from BoardGameGeek, a website for board game enthusiasts that features reviews, forums, and board game data, I conducted a full text analysis on games realsed between 1950 and 2016. The dataset has information about each games category, release date, description, average rating, and more.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>R Packages and Data Loading</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>board_games <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2019/2019-03-12/board_games.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-1">Analysis 1</h3>
+<p>I first wanted to find out what the most common words in the titles of games were. I filtered out filler words like “the”, “and”, “to”, etc. The top ten most common words board game titles can be seen in the table below.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Tibble of Most Popular Words</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>board_games <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">words =</span> <span class="fu">str_extract_all</span>(name, <span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">w+</span><span class="sc">\\</span><span class="st">b"</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(words) <span class="sc">|&gt;</span>                                         </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(words, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(words, <span class="st">"^(?i)(the|of|to|game|s|in|and|a|for|at)$"</span>))<span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   words        n
+   &lt;chr&gt;    &lt;int&gt;
+ 1 War        270
+ 2 Edition    215
+ 3 Card       201
+ 4 Battle     140
+ 5 Star       125
+ 6 Wars       118
+ 7 edition    107
+ 8 World      101
+ 9 Dice        99
+10 Monopoly    72</code></pre>
+</div>
+</div>
+</section>
+<section id="analysis-2" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-2">Analysis 2</h3>
+<p>Since War was the most common word in game names I decided to look at how many war related games there were. The dataset has a column called ‘category’ in which the content category of the game is represented. One game can have several categories listed, categories include: fantasy, exploration, adventure, wargame, and many more. I wanted to explore how many games per year are categorized as wargames and if there has been a change in the number of war games released per year. The graphs below explores this question.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Plot creation - number of war games published per year</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>war_games <span class="ot">&lt;-</span> board_games <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, year_published, category, average_rating) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year_published)<span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">games_per_year =</span> <span class="fu">n</span>(), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">war_games =</span> <span class="fu">sum</span>(<span class="fu">str_detect</span>(category, <span class="st">"(?i)wargame"</span>)), </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> name)<span class="sc">|&gt;</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(war_games <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> war_games<span class="sc">/</span>games_per_year)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(war_games, <span class="fu">aes</span>(<span class="at">x =</span> year_published, <span class="at">y =</span> war_games)) <span class="sc">+</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Number of war games published per year from 1955-2016"</span>, </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"year"</span>, </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">"number of games published"</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="media/Project_Alpha_d3_PCP.png" class="img-fluid figure-img"></p>
-<figcaption>Parallel Coordinates Plot</figcaption>
+<p><img src="text-analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" alt="Line graph representing the number of war games published per year from 1955 to 2016, with year on the x axis and count on the y axis. There is a sharp increase from 1970 to 1980, sharp variation from 1980 to 2000 and then a dramatic increase between 2000 and 2010." width="672"></p>
 </figure>
 </div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Plot creation - proportion of war games published per year</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(war_games, <span class="fu">aes</span>(<span class="at">x =</span> year_published, <span class="at">y =</span> proportion)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Proportion of war games published per year from 1955-2016"</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"year"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">"proportion of total games"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="text-analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Line graph representing the proportion of war games published per year from 1955 to 2016, with year on the x axis and count on the y axis. There is a decrease from 1960 to 1970 and then a sharp increase until 1980 where it falls until 2000 and increases slightly in 2010." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The first graph shows a sharp increase in the number of war games released between 1970 and 1980 and another sharp increase after 2000. From this graph it would be tempting to say that overall there has been an overall increase in the number of war related game sinse the mid 1900’s. However, it is important to take into account the total number of released games. The second graph shows the proportion of games that are considered war games. In this graph we can see that following a low period in the mid-60s, there was a dramatic increase in proportion from the 1970-1980. This aligns with what the first graph showed. The second graph shows that between 1990 and 2000 the proportion of war games decreased and in 2016 the proportion of war games was relatively the same as in 1965. These graphs demonstrate the importance of looking at proportion instead of just quantity.</p>
+</section>
+<section id="analysis-3" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-3">Analysis 3</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Tibble of war and average rating</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>board_games <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, year_published, category, average_rating) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">war =</span> <span class="fu">str_extract</span>(category, <span class="st">"((?&lt;=World War )I+)|(?i)Fantasy.*wargame"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">war =</span> <span class="fu">str_sub</span>(war, <span class="dv">1</span>, <span class="dv">7</span>))<span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(war)) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(war) <span class="sc">|&gt;</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>(), </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">average_rating =</span> <span class="fu">sum</span>(average_rating)<span class="sc">/</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  war     count average_rating
+  &lt;chr&gt;   &lt;int&gt;          &lt;dbl&gt;
+1 Fantasy   139           6.59
+2 I         116           6.91
+3 II        668           6.88</code></pre>
+</div>
+</div>
+<p>The table above shows how many games were published that were categorized as games about World War I, World War II or Fantasy War. There were almost 6 times as many games made about World War II than World War I and Fantasy War games. Across the three, World War I games have a slightly better average rating but overall they have similar ratings.</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>Original Source: https://boardgamegeek.com/ Tidy Tuesday Source: https://github.com/rfordatascience/tidytuesday/blob/main/data/2019/2019-03-12/readme.md</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

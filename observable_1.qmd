@@ -1,9 +1,8 @@
 ---
-title: "observable_1"
+title: "JavaScript Analysis Using Observable"
 format: html
-image: media/Project_Alpha_d3_PCP.png
 ---
 
 In the fall of 2025 I took Data Visualization at Harvey Mudd College with Professor Sophie Engle. We worked in Observable using a combination of Markdown, HTML, CSS, and JavaScript and made visualizations with both Observable Plot and D3. My public Observable notebooks can be seen [here!](https://observablehq.com/@personal-projects17?tab=notebooks)
 
-
+![Parallel Coordinates Plot](media/Project_Alpha_d3_PCP.png)
