@@ -11,9 +11,7 @@ website:
         href: index.qmd
       - text: "Article"
         href: article.qmd
-      - text: "Analysis in JavaScript"
-        href: observable_1.qmd
-      - text: "Analysis in R"
+      - text: "Data Analysis"
         menu:
           - text: "Bechdel Test"
             href: data-viz/bechdel-test.qmd
@@ -29,6 +27,8 @@ website:
             href: data-viz/Project_5.qmd
           - text: "Full Text Analysis" 
             href: data-viz/text-analysis.qmd
+          - text: "Analysis in JavaScript"
+            href: observable_1.qmd
 
 format:
   html:
