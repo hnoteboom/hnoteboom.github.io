@@ -131,5 +131,12 @@
     "title": "SQL Analysis",
     "section": "References",
     "text": "References\nPierson, Emma, Camelia Simoiu, Jan Overgoor, Sam Corbett-Davies, Daniel Jenson, Amy Shoemaker, Vignesh Ramachandran, et al. 2020. “A Large-Scale Analysis of Racial Disparities in Police Stops Across the United States.” Nature Human Behaviour, 1–10.\n\ndbDisconnect(con_traffic)"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "During the summer of 2025, I worked as a research assistant under Seth Cooper. Our research culminated in the production of “Procedural Content Generation via Program Inversion” which was accepted in the EXAG conference."
   }
 ]

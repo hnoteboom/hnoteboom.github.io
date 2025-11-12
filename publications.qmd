@@ -1,0 +1,8 @@
+---
+title: "Publications"
+format: html
+---
+
+During the summer of 2025, I worked as a research assistant under Seth Cooper. Our research culminated in the production of "Procedural Content Generation via Program Inversion" which was accepted in the [EXAG](https://www.exag.org/) conference. 
+
+<iframe src="PLCPI.pdf" width="100%" height=500px></iframe>

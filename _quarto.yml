@@ -13,6 +13,8 @@ website:
         href: article.qmd
       - text: "Data Viz in JavaScript"
         href: observable_1.qmd
+      - text: "Publications"
+        href: publications.qmd
       - text: "Data Viz in R"
         menu:
           - text: "Bechdel Test"
@@ -29,7 +31,7 @@ website:
             href: data-viz/Project_5.qmd
           - text: "Full Text Analysis" 
             href: data-viz/text-analysis.qmd
-
+      
 format:
   html:
     theme: jolla
